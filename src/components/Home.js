@@ -1,27 +1,18 @@
 import React, { useState } from 'react';
 import './Home.css'
 
-const Home = ({ name, image, job, info }) => {
-
-    const [showMore, setshowMore] = useState(false);
+const Home = ({ name, image, job, home_info }) => {
 
     return (
-        <section className="section home-container">
-            <div className="image-container">
-                <img src={image} alt={name} />
+        <div className="Home page-container">
+            <div className="img-container">
+                <img className='home-img' src={image} alt={name} />
             </div>
             <div className="info-container">
                 <h1>Hi! I'm {name}</h1>
                 <h2>{job}</h2>
                 <p>
-                    {
-                        showMore ? info : `${info.substring(0, 300)}...`
-                    }
-                    <button className="info-button" onClick={() => setshowMore(!showMore)}>
-                        {
-                            showMore ? "Show Less" : `Show More`
-                        }
-                    </button>
+                    {home_info}
                 </p>
                 <div className="buttons-container">
                     <a
@@ -37,7 +28,7 @@ const Home = ({ name, image, job, info }) => {
                     </a>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 

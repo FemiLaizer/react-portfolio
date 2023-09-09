@@ -1,35 +1,31 @@
 /* Home.css */
-
-.home-container {
-    display: flex;
-    /* flex-direction: column; */
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    padding: 20px;
-    height: calc(100vh - 18rem);
-}
-
 .image-container {
     /* max-width: 100%; */
     -webkit-box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
     box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
     border-radius: 50%;
+    /* margin-right: 20px; */
+    width: 295px;
+    height: 295px;
+}
+
+.Home img{
+    cursor: pointer;
+    height: 295px;
+    border-radius: 50%;
+    border: .5rem solid white;
+    box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+    transition: ease-in-out 0.5s;
+}
+
+.Home img:hover{
+    transform: scale(1.1);
     margin-right: 20px;
 }
 
-img {
-    cursor: pointer;
-    height: 300px;
-    border-radius: 50%;
-    display: inline-block;
-    border: 8px solid #ffffff;
-    transition: all 0.2s ease-in-out;
-}
-
 .info-container {
-    margin-top: 20px;
-    text-align: left;
+    margin: 20px;
+    /* text-align: left; */
 }
 
 .info-container .info-button {
@@ -41,20 +37,21 @@ img {
     font-weight: bold;
 }
 
-h1 {
+.Home h1 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin: 0 0 5px 0;
 }
 
-h2 {
+.Home h2 {
     font-size: 1.5rem;
-    margin-bottom: 10px;
+    margin: 0 0 5px 0;
 }
 
 p {
-    width: 800px;
+    width: 500px;
     font-size: 1.2rem;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    text-align: justify;
 }
 
 .buttons-container {
@@ -63,7 +60,7 @@ p {
     align-items: center;
 }
 
-.home-button {
+.Home .home-button {
     display: inline-block;
     padding: 10px 20px;
     font-size: 1.2rem;
@@ -78,7 +75,7 @@ p {
     transition: background-color 0.3s ease;
 }
 
-.home-button:hover {
+.Home .home-button:hover {
     background-color: #0056b3;
     /* Darker color on hover */
 }

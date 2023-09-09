@@ -16,13 +16,13 @@ function Sidebar({ isSidebarOpen, closeSidebar }) {
                 onClick={closeSidebar}
                 style={{ display: isSidebarOpen ? 'block' : 'none' }}
             >
-                Close
+                &times;
             </button>
             <ul>
-                <li className={activeLink === 'Home' ? 'active' : ''}>
+                <li className={activeLink === 'Home' ? 'active' : ''} onClick={() => handleLinkClick('Home')}>
                     <a href="/" onClick={() => handleLinkClick('Home')}>Home</a>
                 </li>
-                <li className={activeLink === 'Projects' ? 'active' : ''}>
+                <li className={activeLink === 'Projects' ? 'active' : ''} onClick={() => handleLinkClick('Projects')}>
                     <a href="/projects" onClick={() => handleLinkClick('Projects')}>Projects</a>
                 </li>
                 <li className={activeLink === 'Blog' ? 'active' : ''}>

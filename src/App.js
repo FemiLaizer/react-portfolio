@@ -12,10 +12,14 @@ import projectData from './data/projectData';
 import personalData from './data/personalData';
 import './App.css'; // Don't forget to import your main CSS file
 import { BrowserRouter as Router, Routes, Route, Switch } from 'react-router-dom'; // Import Router and Route
+const allList = ["All", ...new Set(projectData.map(project => (
+  project.category
+)))]
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [projects, setProjects] = useState(projectData);
+  const [projectList, setProjectList] = useState(allList);
 
 
   const toggleSidebar = () => {
@@ -25,6 +29,15 @@ function App() {
   const closeSidebar = () => {
     setIsSidebarOpen(false);
   };
+
+  const filterCategory = (e) => {
+    if(e === "All"){
+    setProjects(projectData)
+      return
+    } 
+    const filteredCategory = projectData.filter(project => project.category === e)
+    setProjects(filteredCategory)
+  }
 
   return (
     <Router>
@@ -38,8 +51,9 @@ function App() {
                 <Home {...personalData} />
               </>
             } />
-            <Route path='/projects' element={<Projects projects={projects} />} />
-            <Route path='/blog' element={<Blog />} />
+            <Route path='/projects' element={<Projects projects={projects} projectList={projectList}
+            filterCategory={filterCategory} />} />
+            <Route path='/blog' element={<Blog projects={projects} />} />
             <Route path='/about' element={<About {...personalData} />} />
             <Route path='/contact' element={<Contact />} />
           </Routes>
